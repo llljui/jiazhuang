@@ -1,0 +1,32 @@
+.tips{
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	background-color: rgba(0,0,0,.65);
+	z-index: 100;
+}
+.content{
+	width: 680rpx;
+	height: 120rpx;
+	opacity: 1;
+	background: rgba(255,255,255,1);
+	border-radius: 10rpx;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	padding: 42rpx;
+	text-align: center;
+	font-size: 36rpx;
+	color: rgba(48,48,48,1);
+	line-height: 34rpx;
+	box-sizing: border-box;
+	box-shadow: 0 0 4rpx #999;
+}

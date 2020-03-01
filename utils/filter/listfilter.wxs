@@ -1,0 +1,11 @@
+module.exports = {
+  relist:function(list,len){
+    var newlist = [];
+    console.log(list);
+    for (var x = 0; x < Math.ceil(list.length / len);x++){
+      console.log(list[x])
+      newlist.push([list[x * (len - 1)], list[x * (len - 1) + 1], list[x * (len - 1) + 2]]);
+    }
+    return newlist;
+  }
+}

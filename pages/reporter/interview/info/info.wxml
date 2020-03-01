@@ -1,0 +1,38 @@
+<header title="   "></header>
+<view class="page-h {{model}}" style="background-color: rgb(243,243,243); min-height: calc(100vh - {{model=='iphonex'?'220':'160'}}rpx);">
+	<view class="info-1">
+		<view class="time">{{info.created_at}}</view>	
+		<view class="flex-row" style="margin-top: 24rpx;padding-left:30rpx;">
+			<view class="flex-grow-0">
+				<image src="{{info.image}}" class="book"></image>
+			</view>
+			<view class="flex-grow-1">
+				<view class="flex-row" style="justify-content: space-between;padding: 0 32rpx;">
+					<view class="flex-grow-0 ft20">{{info.spec}}</view>
+					<!-- <view class="flex-grow-0 ft20">X{{info.duration}}</view> -->
+				</view>
+				<view class="ft18">{{info.user.nickname}}</view>
+				<!-- <view class="ft18">页数：待定；尺寸：待定</view>
+				<view class="flex-row" style="justify-content: flex-end;margin-top:10rpx">
+					<view class="flex-grow-0 count">合计：￥{{info.total_fee}}</view>
+				</view> -->
+			</view>
+		</view>
+	</view>
+	<view class="line" style="height: 24rpx;background-color: rgb(243,243,243);"></view>
+	<view class="info-2">
+		<view class="item- flex-row">
+			<view class="flex-grow-0 n1">姓名</view>
+			<view class="flex-grow-1 n2">{{info.name}}</view>
+		</view>
+		<view class="item- flex-row" style="border-bottom: 0;">
+			<view class="flex-grow-0 n1">手机号码</view>
+			<view class="flex-grow-1 n2" catchtap="call" data-num="{{info.phone}}">{{info.phone}} <text style="font-size: 24rpx;color: #1A7992;">联系他</text></view>
+		</view>
+		<!-- <view class="item- flex-row" style="border-bottom: 0;">
+			<view class="flex-grow-0 n1">详细地址</view>
+			<view class="flex-grow-1 n2">浙江省杭州市江干区单声道小院玫楼5单元206号</view>
+		</view> -->
+		<!-- <view style="height: 60rpx;background: white;"></view> -->
+	</view>
+</view>

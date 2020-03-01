@@ -1,0 +1,64 @@
+.header{
+  width: 750rpx;
+  height: 160rpx;
+  opacity: 1;
+  font-size: 42rpx;
+  font-family: PingFang SC Medium;
+  font-weight: bold;
+  color: rgba(255,255,255,1);
+  position: relative;
+}
+.header.iphonex{
+	height: 220rpx;
+}
+.header image{
+  width: 100%;
+  height: 100%;
+}
+.back-line{
+  width: 100vw;
+  height: 56rpx;
+  opacity: 1;
+  font-size: 42rpx;
+  font-family: PingFang SC Medium;
+  font-weight: bold;
+  color: rgba(255,255,255,1);
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto; 
+}
+.toptitle{
+  width: 100vw;
+  height: 56rpx;
+  opacity: 1;
+  font-size: 42rpx;
+  font-family: PingFang SC Medium;
+  font-weight: bold;
+  color: rgba(255,255,255,1);
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.toptitle.iphonex{
+	margin-top: 103rpx;
+}
+.back-icon{
+  width: 45rpx!important;
+  height: 45rpx!important;
+  position: absolute;
+  left: 34rpx;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.back-icon.iphonex{
+	margin-top: 110rpx;
+}

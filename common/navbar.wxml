@@ -1,0 +1,18 @@
+<!-- <view class="flex-row switchtab">
+	<view class="flex-grow-1 po-r" catchtap="redictTo" data-url="/pages/index/index">
+		<image src="{{tab=='/pages/index/index'?'../static/jc-a.png':'../static/jc.png'}}" class="nav-icon"></image>
+		<view class="nav-t {{tab=='/pages/index/index'?'color-w':''}}">家传</view>
+	</view>
+	<view class="flex-grow-1 po-r" catchtap="redictTo" data-url="/pages/reporter/index">
+		<image src="{{tab=='/pages/reporter/index'?'../static/jz-a.png':'../static/jz.png'}}" class="nav-icon"></image>
+		<view class="nav-t {{tab=='/pages/reporter/index'?'color-w':''}}">记者</view>
+	</view>
+	<view class="flex-grow-1 po-r" catchtap="redictTo" data-url="/pages/bookshelf/index">
+		<image src="{{tab=='/pages/bookshelf/index'?'../static/bookshelf-a.png':'../static/bookshelf.png'}}" class="nav-icon"></image>
+		<view class="nav-t {{tab=='/pages/bookshelf/index'?'color-w':''}}">书架</view>
+	</view>
+	<view class="flex-grow-1 po-r" catchtap="redictTo" data-url="/pages/my/index">
+		<image src="{{tab=='/pages/my/index'?'../static/user-a.png':'../static/user.png'}}" class="nav-icon"></image>
+		<view class="nav-t {{tab=='/pages/my/index'?'color-w':''}}">我的</view>
+	</view>
+</view> -->

@@ -1,0 +1,231 @@
+<view class="bg-img header {{model}}">
+<view class="videoshow bg-img" wx:if="{{videoshow}}" catchtap="videoplay"
+ style="background-image:url({{videoitem.image}})">
+    <audio  name="{{videoitem.title}}"  poster="{{'/static/mvbg.png'}}" author="{{videoitem.user.nickname}}" src="{{videoitem.audio}}" id="myAudio" controls bindplay="audioPlay"></audio>
+</view>
+	<image src="../../../static/report-info-bg.png" class="report-info-bg"></image>
+	<view class="back-view"  catchtap="back">
+		<image catchtap="back" src="../../../static/left.png" class="back-icon"></image>
+		<view class="flex-row user-info">
+			<view class="flex-grow-0 avatar bg-img" style="background-image: url({{infodel.avatar}});"></view>
+			<view class="flex-grow-0" style="margin-left: 28rpx;">
+				<view class="nickname" style="color:white">{{infodel.nickname}} 
+        <image src="../../../static/reporter-icon.png"  wx:if="{{infodel.symbol==2}}" class="rep-icon"></image>
+        <image  src="../../../static/jzpt.png"  wx:if="{{infodel.symbol==3}}" 
+         class="rep-icon" ></image>
+       
+        </view>
+				<view class="info-detail">
+					<text>{{infodel.age}}岁</text>
+					<text>{{infodel.gender==1?'男':'女'}}</text>
+					<text>{{infodel.city}}</text>
+				</view>
+			</view>
+			<view class="flex-grow-1">
+				<form action="" report-submit="{{true}}"  bindsubmit="saveFormId">
+					<button open-type="share" class="share">
+						推荐
+					</button>
+				</form>
+			</view>
+		</view>
+		<view class="desc text-esp">{{infodel.signature}}</view>
+	</view>
+</view>
+<view class="top-bg {{model}}" style="background-color: white;"></view>
+<view class="body {{model}}" style="padding-top: {{model=='iphonex'?'160rpx':'100rpx'}};z-index:{{commentshow?'99999':'1'}}">
+	<view class="item-tap flex-row" style="top: {{model=='iphonex'?'460':'400'}}rpx;">
+		<view class="flex-grow-0 {{tab==1?'active':''}}" catchtap="touchTab" data-tab="1">资料</view>
+		<view class="flex-grow-0 {{tab==2?'active':''}}" catchtap="touchTab" data-tab="2">作品</view>
+		<view class="flex-grow-0 {{tab==3?'active':''}}" catchtap="touchTab" data-tab="3">讲述</view>
+		<view class="flex-grow-0 {{tab==4?'active':''}}" catchtap="touchTab" data-tab="4">好听</view>
+	</view>
+	<block wx:if="{{tab==1}}">
+		<view class="user-photo"  hover-class="none" url="/pages/reporter/photo/photo">
+			<view class="flex-row" style="justify-content: space-between;padding: 44rpx 62rpx 0 62rpx;">
+			  <view class="flex-grow-0" style="margin-right: 103rpx;">相册</view>
+			  <view class="flex-grow-1">
+				  <image src="../../../static/right.png" class="more"></image>
+				  <text style="font-size: 30rpx;font-family: PingFang SC Medium;color: rgba(153,153,153,1);"  wx:if="{{infodel.photos.length==0}}">暂无照片</text>
+			  </view>
+			</view>
+			<scroll-view scroll-x="{{true}}" class="photo-list" wx:if="{{infodel.photos.length>0}}">
+				<image wx:for="{{infodel.photos}}"  catchtap="imgpre" data-item="{{item.src}}" data-list="{{infodel.photos}}"  wx:key="{{index}}" src="{{item.src}}" class="photo-image" ></image>
+			</scroll-view>
+		</view>
+		<view class="line-h"></view>
+		<view class="items">
+			<view class="item">
+				<text class="t1">方言区</text>
+				<text class="t2">{{infodel.lang_area}}</text>
+			</view>
+			<view style="height: 4rpx;background-color: #f2f2f2;margin: auto;width: 696rpx;"></view>
+			<view class="item">
+				<text class="t1">学历</text>
+				<text class="t2">{{infodel.education}}</text>
+			</view>
+			<view style="height: 4rpx;background-color: #f2f2f2;margin: auto;width: 696rpx;"></view>
+			<view class="t1 item">
+				个人简介
+			</view>
+			<view class="item-desc">
+				{{infodel.intro}}
+			</view>
+			<view style="height: 240rpx;background-color: white;margin-top: -40rpx;"></view>
+		</view>
+	</block>
+	<view wx:if="{{tab==2}}" style="padding-bottom:100rpx;">
+		<wxs module="listfilter" src="../../../utils/filter/listfilter.wxs"></wxs>
+    <navigator class="book-list flex-row"  data-index="{{index}}" wx:for="{{listfilter.relist(user_book,3)}}" wx:key="{{index}}" hover-class="none"  >
+        <image src="../../static/bookbg.png"></image>
+        <navigator style="background-image:url({{user_book[((index>0)?((index+1)*3-3):(index))].image}})" 
+        class="flex-grow-0 prelative bg-img {{(user_book[((index>0)?((index+1)*3-3):(index))].id)?'':'visable'}}"  url="{{'/pages/bookshelf/detail/detail?img='+(user_book[((index>0)?((index+1)*3-3):(index))].image)+'&book='+(user_book[((index>0)?((index+1)*3-3):(index))].book)}}" hover-class="none">
+<view class="item-book-name">{{user_book[((index>0)?((index+1)*3-3):(index))].name}}</view></navigator>
+        <navigator style="background-image:url({{user_book[((index>0)?((index+1)*3-2):(index+1))].image}})" 
+        class="flex-grow-0 prelative bg-img {{(user_book[((index>0)?((index+1)*3-2):(index+1))].id)?'':'visable'}}" url="{{'/pages/bookshelf/detail/detail?img='+(user_book[((index>0)?((index+1)*3-3):(index))].image)+'&book='+(user_book[((index>0)?((index+1)*3-3):(index))].book)}}"
+        ><view class="item-book-name">{{user_book[((index>0)?((index+1)*3-2):(index+1))].name}}</view></navigator>
+        <navigator style="background-image:url({{user_book[((index>0)?((index+1)*3-1):(index+2))].image}})" 
+        class="flex-grow-0 prelative bg-img {{(user_book[((index>0)?((index+1)*3-1):(index+2))].id)?'':'visable'}}" url="{{'/pages/bookshelf/detail/detail?img='+(user_book[((index>0)?((index+1)*3-3):(index))].image)+'&book='+(user_book[((index>0)?((index+1)*3-3):(index))].book)}}"
+        ><view class="item-book-name">{{user_book[((index>0)?((index+1)*3-1):(index+2))].name}}</view></navigator>
+      </navigator>
+      <view style="height: 100rpx;" class="v-line"></view>
+      <view class="ft14" wx:if="{{user_booktotal<=params_userbook.page}}" class="no-more">-到底了呦-</view>
+	</view>
+	<block wx:if="{{tab==3}}" >
+     <view style="padding-bottom:100rpx">
+       <view class="block" wx:for="{{user_list}}" wx:key="{{index}}">
+       <image src="/static/home-block.png" class="bg-image"></image>
+      
+          <view class="item-video">
+           <image src="/static/vbg.png"></image>
+           <image  class="bg-img-y"  mode="aspectFit" 
+          style="z-index:99;background-image:url({{item.image}})" mode=""></image>
+          <!-- <image src="{{item.image}}" class="bg-img-y" style="z-index:99" mode=""></image> -->
+           <image src="/static/nplay.png" catchtap="videoplay" data-item="{{item}}" data-index="{{index}}"
+            style="width:128rpx;height:128rpx;z-index:100" data-type="user_list"></image>
+
+          </view>
+          <view class="item-desc">{{item.title}}</view>
+          <view class="flex-row item-action" style="justify-content: space-between;">
+        <view class="flex-grow-0 item-message" catchtap="openComment" data-item="{{item}}" data-index="{{index}}">
+          <image src="/static/message-icon.png" ></image>
+          <text >{{item.comment_num}}</text>
+        </view>
+        <view class="flex-grow-1 item-fav" catchtap="selectItem" data-item="{{item}}" data-index="{{index}}">
+          <image src="{{item.is_collect?'/static/item-like-act.png':'/static/item-like.png'}}" ></image>
+          <text >{{item.collect_num?item.collect_num:''}}</text>
+        </view>
+        <view class="flex-grow-0 item-share">
+          <image src="/static/share-icon.png" ></image>
+          <text >{{item.share_num}}</text>
+      <button open-type="share" data-item="{{item}}" data-index="{{index}}" class="share-btn"></button>
+        </view>
+      </view>
+    </view>
+    <view class="comment-bg" wx:if="{{commentshow}}" catchtap="closeComment"></view>
+    <view class="comment"  wx:if="{{commentshow}}">
+      <view class="item-h">
+        <view>评论（{{curcomment.comment_num}}）</view>
+        <image src="/static/close.png" catchtap="closeComment"></image>
+      </view>
+      <scroll-view scroll-y="{{true}}" class="comment-list" bindscrolltolower="loadComment">
+      <view class="flex-row item" wx:for="{{commentsList}}" wx:key="{{index}}" style="margin-bottom: {{(index==commentsList.length-1)?'30':'0'}}rpx;" catchtap="backcomment" data-item="{{item}}" data-index="{{index}}">
+        <view class="flex-grow-0" style="margin-right: 20rpx;">
+          <image src="{{item.user.avatar}}" class="avatar"></image>
+        </view>
+        <view class="flex-grow-1">
+          <view class="nickname">{{item.user.nickname}}</view>
+          <view class="comment-i">{{item.content}}</view>
+          <view class="comment-else" wx:if="{{item.children.length>0}}">
+            <view wx:for="{{item.children}}" wx:key="{{index1}}" wx:for-index="index1" wx:for-item="item1" catchtap="backcomment" data-item="{{item1}}" data-index="{{index}}">{{item1.user.nickname}}：{{item1.content}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="nomore" wx:if="{{commentAllpage<=commentsParams.page}}">没有更多了~</view>
+      </scroll-view>
+      <view class="input-my-comment">
+        <input type="text" value="{{comment_content}}" bindinput="commentcontent" placeholder="{{(curcomment.user.nickname?('@'+curcomment.user.nickname):'')+' 我想对你说'}}" placeholder-style="color:#9e9e9e" />
+        <text catchtap="comment">发送</text>
+      </view>
+    </view>
+    </view>
+
+  </block>
+	<block wx:if="{{tab==4}}">
+   <view wx:if="{{user_collects.length==0}}" style="height: calc(100vh - 490rpx - 124rpx);background-color: white;">
+				<view class="ft24 txt-center" style="margin-top:30rpx;">暂无列表</view> 
+				<!-- <view class="ft18">快去家传浏览发现喜欢的讲述吧！!</view> -->
+			</view>
+			<view class="block" wx:for="{{user_collects}}" wx:key="{{index}}" style="height:686rpx;">
+			  <image src="/static/home-block.png" class="bg-image"></image>
+			  <view class="flex-row flex-y-center">
+			    <view class="flex-grow-0" style="margin-right:16rpx;">
+			      <image src="{{item.tell.user.avatar}}" class="avter bgc-r"></image>
+			    </view>
+			    <view class="flex-grow-1">
+			      <view class="item-name">{{item.tell.user.nickname}}</view>
+			      <view class="item-location">{{item.tell.user.city}}</view>
+			    </view>
+			    <view class="flex-grow-0"> </view>
+			  </view>
+			  <view class="item-video" style="height:auto">
+          <image src="/static/vbg.png"></image>
+          <image  class="bg-img-y"  mode="aspectFit" 
+          style="z-index:99;background-image:url({{item.tell.image}})" mode=""></image>
+          <!-- <image src="{{item.tell.image}}" style="z-index:99" mode=""></image> -->
+          <image src="/static/nplay.png"  catchtap="videoplay" 
+          data-type="user_collects"  data-item="{{item}}" data-index="{{index}}"
+            style="width:128rpx;height:128rpx;z-index:100"></image>
+          
+			  </view>
+			  <view class="item-desc" style="padding:0 50rpx;position:absolute;bottom:120rpx;left:0;right:0;margin:auto;">{{item.tell.title}}</view>
+			  <view class="flex-row item-action" style="justify-content: space-between;position:absolute;bottom:60rpx;left:0;right:0;margin:auto;">
+			    <view class="flex-grow-0 item-message" catchtap="openComment" data-item="{{item.tell}}" data-index="{{index}}">
+			      <image src="/static/message-icon.png" ></image>
+			      <text >{{item.tell.comment_num}}</text>
+			    </view>
+			    <view class="flex-grow-1 item-fav">
+			      <image src="/static/item-like-act.png" ></image>
+			      <text >好听</text>
+			    </view>
+			    <view class="flex-grow-0 item-share">
+			      <image src="/static/share-icon.png" ></image>
+			      <text >{{item.tell.share_num}}</text>
+			    </view>
+			  </view>
+			</view>
+      <view class="txt-center b-line" wx:if="{{(params_collects.page>=user_collectstotal)&&(user_collects.length!=0)}}">-到底了-</view>
+
+  </block>
+	<navigator hover-class="none" url="{{'/pages/reporter/readme/readme?id='+infodel.product_id+'&reporter_id='+infodel.id}}" class="out-book">找记者出书</navigator>
+</view>
+
+<view class="comment-bg" wx:if="{{commentshow}}" catchtap="returns"></view>
+<!--  -->
+   <view class="comment"  wx:if="{{commentshow}}">
+      <view class="item-h">
+        <view>评论（{{curcomment.comment_num}}）</view>
+        <image src="/static/close.png" catchtap="closeComment"></image>
+      </view>
+
+      <scroll-view scroll-y="{{true}}" class="comment-list" bindscrolltolower="loadComment">
+      <view class="flex-row item" wx:for="{{commentsList}}" wx:key="{{index}}" style="margin-bottom: {{(index==commentsList.length-1)?'30':'0'}}rpx;" catchtap="backcomment" data-item="{{item}}" data-index="{{index}}">
+        <view class="flex-grow-0" style="margin-right: 20rpx;">
+          <image src="{{item.user.avatar}}" class="avatar"></image>
+        </view>
+        <view class="flex-grow-1">
+          <view class="nickname">{{item.user.nickname}}</view>
+          <view class="comment-i">{{item.content}}</view>
+          <view class="comment-else" wx:if="{{item.children.length>0}}">
+            <view wx:for="{{item.children}}" wx:key="{{index1}}" wx:for-index="index1" wx:for-item="item1" catchtap="backcomment" data-item="{{item1}}" data-index="{{index}}">{{item1.user.nickname}}：{{item1.content}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="nomore" wx:if="{{commentAllpage<=commentsParams.page}}">没有更多了~</view>
+      </scroll-view>
+      
+      <view class="input-my-comment">
+        <input type="text" value="{{comment_content}}" bindinput="commentcontent" placeholder="{{(curcomment.user.nickname?('@'+curcomment.user.nickname):'')+' 我想对你说'}}" placeholder-style="color:#9e9e9e" />
+        <text catchtap="comment">发送</text>
+      </view>
+    </view>

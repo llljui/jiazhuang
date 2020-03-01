@@ -1,0 +1,56 @@
+.info-1{
+	width:750rpx;
+	height:310rpx;
+	background:rgba(255,255,255,1);
+	padding:0 30rpx;
+}
+.time{
+	height: 70rpx;
+	font-size:24rpx;
+	font-family:PingFang;
+	font-weight:bold;
+	color:rgba(153,153,153,1);
+	border-bottom: 2rpx solid #eee;
+	line-height: 74rpx;
+	padding:0 30rpx;
+}
+.book{
+	width:130rpx;
+	height:172rpx;
+	border-radius:2rpx;
+}
+.ft20{
+	font-size:30rpx;
+	font-family:PingFang;
+	font-weight:bold;
+	color:rgba(48,48,48,1);
+	margin-bottom: 10rpx;
+}
+.ft18{
+	font-size:24rpx;
+	font-family:PingFang;
+	font-weight:bold;
+	color:rgba(153,153,153,1);
+	padding: 0 32rpx;
+	height: 40rpx;
+	line-height: 40rpx;
+}
+.count{
+	font-size:26rpx;
+	font-family:PingFang;
+	font-weight:500;
+	color:rgba(48,48,48,1);
+	padding: 0 32rpx;
+}
+.info-2{
+	padding: 0 30rpx;
+	background: white;
+}
+.item-{
+	min-height: 100rpx;
+	border-bottom: 2rpx solid #eee;
+	align-items: center;
+}
+.n1{
+	width: 180rpx;
+}

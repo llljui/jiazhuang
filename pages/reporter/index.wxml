@@ -1,0 +1,19 @@
+<header title="记者"></header>
+<!-- <navbar navtab="/pages/reporter/index"></navbar> -->
+<login login="{{login}}" bind:logincomplete="logincomplete"></login>
+<view class="page-h {{model}}">
+  <view hover-class="none" catchtap="navto" data-url="{{'/pages/reporter/info/info?id='+item.id}}" class="item-list" wx:for="{{list}}" wx:key="{{index}}">
+	  <image src="../../static/report-list.png"></image>
+    <!-- src="{{item.avatar}}"  -->
+	  <image class="user-bg bg-img"
+     style="border-radius: 10rpx 10rpx 0rpx 0rpx;background-image:url({{item.avatar}})"></image>
+	  <view class="user-info">
+		  <text>{{item.nickname}}</text>
+		  <text>{{item.city}}</text>
+	  </view>
+  </view>
+  <view class="out-book" catchtap="applyoutbook">
+  	  <text>找记者出书</text>
+  	  <!-- <navigator open-type="navigate" hover-class="none" class="img-nav" url="/pages/index/speak/speak"></navigator> -->
+  </view>
+</view>

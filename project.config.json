@@ -1,0 +1,168 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": true,
+		"autoAudits": false,
+		"uglifyFileName": true,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"bundle": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.9.4",
+	"appid": "wx36425412cd773738",
+	"projectname": "mp",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 4,
+			"list": [
+				{
+					"id": -1,
+					"name": "举报",
+					"pathName": "pages/index/against/against",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我讲",
+					"pathName": "pages/index/speak/speak",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "书架",
+					"pathName": "pages/bookshelf/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "记者",
+					"pathName": "pages/reporter/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "查看记者",
+					"pathName": "pages/reporter/info/info",
+					"query": "id=3",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "我的",
+					"pathName": "pages/my/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "申请做记者",
+					"pathName": "pages/reporter/apply/apply",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "记者个人想相册",
+					"pathName": "pages/reporter/photo/photo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "提现页面",
+					"pathName": "pages/my/getmoney/getmoney",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "出书说明书",
+					"pathName": "pages/reporter/readme/readme",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "填写出书信息",
+					"pathName": "pages/reporter/outbook/outbook",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "采访",
+					"pathName": "pages/reporter/interview/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "采访详情",
+					"pathName": "pages/reporter/interview/info/info",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "协议",
+					"pathName": "pages/reporter/agreement/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/reporter/info/info",
+					"pathName": "pages/reporter/info/info",
+					"query": "id=4",
+					"scene": null
+				}
+			]
+		}
+	}
+}

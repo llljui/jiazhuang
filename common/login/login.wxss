@@ -1,0 +1,117 @@
+.login{
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	z-index: 10000000;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	background-color: rgba(0,0,0,.5);
+}
+.content{
+	width:620rpx;
+	height:472rpx;
+	background:rgba(255,255,255,1);
+	box-shadow:0px 2rpx 2rpx 0px rgba(4,0,0,0.75);
+	border-radius:14rpx;
+	position: fixed;
+	z-index: 10000000;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	background-color:white;
+	border-radius: 20rpx;
+	padding: 56rpx 50rpx;
+}
+.ft14{
+	font-size:36rpx;
+	font-family:PingFang;
+	font-weight:500;
+	color:rgba(50,50,50,1);
+	line-height:34rpx;
+}
+.ft12{
+	margin-top: 46rpx;
+	font-size:30rpx;
+	font-family:PingFang;
+	font-weight:500;
+	color:rgba(50,50,50,1);
+	line-height:34rpx;
+}
+.line{
+	width:520rpx;
+	height:2rpx;
+	background:rgba(176,176,176,1);
+	margin:26rpx auto 46rpx auto;
+}
+.author{
+	height:46rpx;
+	font-size:30rpx;
+	font-family:PingFang;
+	font-weight:500;
+	color:rgba(50,50,50,1);
+	line-height:34rpx;
+}
+.dott{
+	display: inline-block;
+	vertical-align: middle;
+	width:16rpx;
+	height:16rpx;
+	background:rgba(191,191,191,1);
+	border-radius: 30rpx;
+}
+.kuan{
+	font-size:30rpx;
+	display: inline-block;
+	vertical-align: middle;
+	font-family:PingFang;
+	font-weight:500;
+	color:rgba(50,50,50,1);
+	line-height:34rpx;
+	width:472rpx;
+	height:46rpx;
+	margin-left: 30rpx;
+}
+button{
+	width:150rpx;
+	height: 40rpx;
+	font-size:36rpx;
+	padding: 0;
+	line-height: 40rpx;
+	font-family:PingFang;
+	font-weight:500;
+	color:rgba(50,50,50,1);
+	text-align: center;
+	background: white;
+	border: none;
+	border-radius: 0;
+	outline: none;
+	border-color:white;
+	min-width: 0;
+	-webkit-box-flex: 0;
+	-ms-flex-positive: 0;
+	flex-grow: 0;
+	-ms-flex-negative: 0;
+	flex-shrink: 0;
+	
+}
+ button::after{ border:none; }
+.action{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	flex-direction: row;
+	position: relative;
+	top: 106rpx;
+	justify-content: flex-end;
+	float: right;
+	
+}
+.btn-hover{
+	background: none;
+}

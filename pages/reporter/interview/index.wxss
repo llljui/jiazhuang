@@ -1,0 +1,58 @@
+.item-data{
+	width:750rpx;
+	height:188rpx;
+	background:rgba(255,255,255,1);
+	padding: 30rpx;
+	align-items: center;
+	border-bottom: 2rpx solid #eee;
+}
+.avatar{
+	width:130rpx;
+	height:130rpx;
+	border-radius: 130rpx;
+	display: inline-block;
+	vertical-align: middle;
+}
+.item-detail{
+	display: inline-block;
+	vertical-align: middle;
+	padding-left: 30rpx ;
+}
+.ft18{
+	width:280rpx;
+	font-size:36rpx;
+	font-family:PingFang;
+	font-weight:bold;
+	color:rgba(24,24,24,1);
+	line-height:21px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.ft14{
+	width:280rpx;
+	font-size:30rpx;
+	font-family:PingFang;
+	font-weight:500;
+	color:rgba(153,153,153,1);
+	line-height:25px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.interview{
+	width:144rpx;
+	height:62rpx;
+	background:rgba(26,121,146,1);
+	padding: 0;
+	line-height: 62rpx;
+	border-radius:30rpx;
+	text-align: center;
+	color: white;
+	font-size:30rpx;
+	font-family:PingFang;
+	font-weight:bold;
+}
+button::after{
+	border: 0;
+}

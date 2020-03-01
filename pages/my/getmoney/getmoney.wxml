@@ -1,0 +1,22 @@
+<header title="   "></header>
+<view class="page-h {{model}}" >
+	<view class="content">
+		<block wx:if="{{status==1}}">
+			<view class="t1">提取稿费到微信钱包</view>
+			<view class="t2">提取金额（元）</view>
+			<view class="flex-row" style="align-items: center;">
+				<view class="flex-grow-0 money">￥</view>
+				<view class="flex-grow-0 input-in">
+					<input bindinput="numin" type="digit" placeholder="可提取{{maxnum}}元" value="{{num}}" placeholder-style="color: rgba(153,153,153,1)" />
+				</view>
+				<view class="flex-grow-0" style="color: #1A7992;" catchtap="allget">全部提取</view>
+			</view>
+		</block>
+		<block  wx:if="{{status==2}}">
+			<image src="../../../static/ok.png" class="got-icon"></image>
+			<view class="got-t">稿费收到</view>
+			<view class="got-tt">您已成功提取200元稿费到微信钱包</view>
+		</block>
+	</view>
+</view>
+<view class="getout" wx:if="{{status==1}}" catchtap="getout" style="background-color: {{num?'#1A7992':''}};color: {{num?'white':'#999999'}};">提取稿费</view>

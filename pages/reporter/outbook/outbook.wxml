@@ -1,0 +1,41 @@
+<header title="   "></header>
+<view class="page-h {{model}}" >
+	<view class="content">
+		<view class="l-input">
+			<text class="item-name">姓名</text>
+			<input type="text" value="{{form.name}}" bindinput="formin" data-type="name" placeholder="请输入姓名" />
+		</view>
+		<view class="l-input">
+			<text class="item-name">手机号码</text>
+			<input type="number" value="{{form.phone}}" bindinput="formin" data-type="phone"  maxlength="11" placeholder="请输入手机号" />
+		</view>
+		<view class="l-input">
+			<text class="item-name">详细地址</text>
+			<textarea type="text" value="{{form.address}}" bindinput="formin" data-type="address"  placeholder="请填写您的住址 省/市/区和详细的乡镇、街道、小区、单元、门牌等"  />
+		</view>
+	</view>
+	<view class="agree">
+		<text>点击下一步表示同意</text>
+		<text style="color: #1A7992;" catchtap="navto">服务协议</text>
+	</view>
+	<form action="" report-submit="{{true}}" bindsubmit="saveFormId">
+		<button form-type="submit" class="next-btn" catchtap="nextStep">下一步</button>
+	</form>
+	<view class="error" wx:if="{{errshow}}">
+		<view class="err-content">请填写完整信息</view>
+	</view>
+	
+	<view class="message" wx:if="{{msgshow}}">
+		   <view class="contents">
+			   <view style="margin: 62rpx 0;">提交成功</view>
+			   <view>您可以在 我的－自传 栏目中查看订单</view>
+			   <view>详情和出书进展</view>
+			   <view class="line-h"></view>
+			   <view class="do" catchtap="doknow">
+				   我知道了
+			   </view>
+		   </view>
+	</view> 
+</view>
+
+

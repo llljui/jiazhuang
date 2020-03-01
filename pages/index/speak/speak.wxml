@@ -1,0 +1,39 @@
+<header title="我讲"></header>
+<view class="pages {{model}}">
+	<view class="item-img" catchtap="uploadimg">
+		<!-- <image src="{{itembg?itembg:'../../../static/speak-bg.png'}}" mode="aspectFill"></image> -->
+		<canvas canvas-id="itembgs" ></canvas>
+    <!-- <canvas canvas-id="itembgs_o" 
+    style="position:absolute;opacity:0;left:0;top:0;width:10rpx;height:10rpx;"></canvas> -->
+	</view>
+	<textarea style="border-top: 1rpx solid #eee;" bindinput="bindTextAreaBlur" maxlength="16" value="{{title}}" placeholder="取个好标题" placeholder-style="font-size: 36rpx;font-family: PingFang SC Medium;color: rgba(153,153,153,1);" />
+	<view class="start-speak">
+		<image catchtap="listenSpeak" 
+    src="{{!islisten?'../../../static/speak-in.png':'../../../static/speak-in.gif'}}"></image>
+		<!-- <text style="display: block;width: 344rpx;float: right;text-align: left;" catchtap="openSpeak">{{lastrecord.length>0?lasttime:'开始讲述'}}</text>  -->
+    <text style="position:absolute;width: 344rpx;height: 80rpx;text-align: left;line-height: 30rpx;right: 30rpx;color:#979696" >
+     您还可录制{{time_m}}分{{time_s}}秒</text> 
+	</view>
+  <view class="tips txt-center" >{{(status==1)?'按下录音 再按暂停':'正在录音...'}} <text></text></view>
+  <view class="txt-center" >
+     <image catchtap="{{status==2?'recordStop':'record'}}"
+      src="/static/speak.png" class="speak-icon"></image>
+  </view>
+	<view class="item-submit" catchtap="tells">发布</view>
+	<cover-view class="bg-show" wx:if="{{speakShow}}">
+		<cover-view class="speak-content">
+			<cover-view class="close-view" catchtap="closeSpeak"><cover-image src="../../../static/close.png" class="close-icon"></cover-image></cover-view>
+			<cover-view class="item-time">
+				<cover-view class="mm">0{{time_s>0?(5 - time_m - 1):(5 - time_m)}}:{{(time_s&&(60-time_s)<10)?('0'):""}}{{time_s?(60-time_s):"00"}}</cover-view>
+				<cover-view class="ss">您还可录制{{time_m}}分{{time_s}}秒</cover-view>
+        <cover-view class="ss" style="font-size:20rpx;margin-top:10rpx">录音结束时请先点击暂停,再完成哦~</cover-view>
+			</cover-view>
+			<cover-view class="flex-row item-action">
+				 <cover-view class="i-num" wx:if="{{record_list.length>0}}">{{record_list.length}}</cover-view>
+				<cover-view class="flex-grow-0 cancel" catchtap="{{(status==1&&record_list.length>0)?'cancelrecord':''}}">撤销</cover-view>
+				<cover-view class="flex-grow-0 start" catchtap="{{status==2?'recordStop':'record'}}"><cover-image wx:if="{{status==1}}" src="../../../static/start.png"></cover-image> <cover-image src="../../../static/stop.png" wx:if="{{status==2}}" style="margin: 40rpx;"></cover-image> </cover-view>
+				<cover-view class="flex-grow-0 complete" catchtap="{{(status==1&&record_list.length>0)?'complete':''}}">完成</cover-view>
+			</cover-view>
+		</cover-view>
+	</cover-view>
+</view>

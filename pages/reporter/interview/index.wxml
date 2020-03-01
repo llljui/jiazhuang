@@ -1,0 +1,18 @@
+<header title="采访"></header>
+<view class="page-h {{model}}" style="background-color: white;padding: 12rpx; min-height: calc(100vh - {{model=='iphonex'?'220':'160'}}rpx);">
+	<view class="item-data flex-row" wx:for="{{list}}" wx:key="{{index}}">
+		<view class="flex-grow-0">
+			<image src="{{item.user.avatar}}" class="avatar"></image>
+			<view class="item-detail">
+				<view class="ft18">{{item.user.nickname}}</view>
+				<view class="ft14">{{item.spec}}</view>
+			</view>
+		</view>
+		<view class="flex-grow-1">
+			<form action="" report-submit="{{true}}" bindsubmit="saveformid">
+				<button form-type="submit" catchtap="interview" class="interview" data-item="{{item}}">采访他</button>
+			</form>
+		</view>
+	</view>
+	<view class="nomore" wx:if="{{allpage<=params.page}}">没有更多了</view>
+</view>

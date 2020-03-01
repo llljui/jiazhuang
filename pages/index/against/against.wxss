@@ -1,0 +1,63 @@
+.pages{
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  padding-top: 160rpx;
+}
+.content{
+  padding: 50rpx;
+  width: 100%;
+  height: 100%;
+}
+.ft18{
+  opacity: 1;
+  font-size: 36rpx;
+  font-family: PingFang SC Medium;
+  color: rgba(48,48,48,1);
+  line-height: 56rpx;
+}
+.item-radio{
+  display: block;
+  width: 100%;
+  height: 84rpx;
+}
+.item-list{
+  padding-left: 23rpx;
+  margin-top: 52rpx;
+  border-bottom: 2rpx solid #f4f4f4;
+  padding-bottom: 20rpx;
+}
+.detail{
+  height: 34rpx;
+  opacity: 1;
+  font-size: 36rpx;
+  font-family: PingFang SC Medium;
+  color: rgba(48,48,48,1);
+  line-height: 56rpx;
+  margin-top: 46rpx;
+}
+.submit-btn{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 98rpx;
+  opacity: 1;
+  background: rgba(26,121,146,1);
+  line-height: 98rpx;
+  text-align: center;
+  font-size: 36rpx;
+  font-family: PingFang SC Regular;
+  font-weight: bold;
+  color: rgba(255,255,255,1);
+}
+textarea{
+  margin-top: 40rpx;
+}
+.placeholder-txt{
+  opacity: 1;
+  font-size: 30rpx;
+  font-family: PingFang SC Medium;
+  color: rgba(196,196,196,1);
+}

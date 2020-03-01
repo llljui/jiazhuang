@@ -1,0 +1,3 @@
+<cover-view class="tips" wx:if="{{show}}">
+	<cover-view class="content">{{toast}}</cover-view>
+</cover-view>

@@ -1,0 +1,6 @@
+<view class="header {{model}}" catchtap="navback" >
+  <image src="../static/header-icon.png"></image>
+  <text class="toptitle {{model}}" style="visibility:{{title?'visible':'hidden'}}">{{title}}</text>
+  <image class="back-icon {{model}}" src="../static/left.png" catchtap="navback" wx:if="{{title!='家传'&&title!='记者'&&title!='我的'&&title!='书架'&&title!='  '}}"></image>
+  <!-- <view class="back-line" catchtap="navback" >back</view> -->
+</view>

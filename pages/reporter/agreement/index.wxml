@@ -1,0 +1,5 @@
+<import src="/utils/wxParse/wxParse.wxml"/>
+<header title="协议"></header>
+<view  class="pages-h {{model}}" style="background-color: white;padding: 12rpx;padding-top: {{model=='iphonex'?'220':'160'}}rpx;min-height: calc(100vh - {{model=='iphonex'?'220':'160'}}rpx);">
+	<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+</view>

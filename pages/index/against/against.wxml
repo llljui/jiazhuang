@@ -1,0 +1,19 @@
+<header title="举报"></header>
+<tip tipshow="{{message}}"></tip>
+<view class="pages {{model}}">
+  <view class="content">
+    <view class="ft18">举报原因</view>
+    <view class="item-list">
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="item-radio" wx:for="{{items}}" wx:key="{{index}}">
+          <radio value="{{item.id}}" color="#2f7a92" checked="{{item.checked}}"/>{{item.reason}}
+        </label>
+      </radio-group>
+    </view>
+   <view class="detail">详情说明</view>
+   <view class="section">
+      <textarea bindinput="bindTextAreaBlur" auto-height placeholder="请填写详细说明，帮助审核人员快速处理" placeholder-class="placeholder-txt" />
+   </view>
+  </view>
+  <view class="submit-btn" catchtap="submit">提交</view>
+</view>

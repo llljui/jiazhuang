@@ -1,0 +1,6 @@
+<header title="书籍"></header>
+<!-- <import src="/utils/wxParse/wxParse.wxml"/> -->
+<view class="pages {{model}}">
+	<!-- <template is="wxParse" data="{{wxParseData:article.nodes}}"/> -->
+	<image src="{{img}}" class="book" mode="aspectFit" catchtap="loadbooks"></image>
+</view>

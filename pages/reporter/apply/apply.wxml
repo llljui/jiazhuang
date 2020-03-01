@@ -1,0 +1,42 @@
+<header title="申请做记者"></header>
+<tip tipshow="{{message}}"></tip>
+<view class="pages {{model}}" style="background-color: #f0f0f0;">
+   <block wx:if="{{status==null}}">
+   <!--  -->
+	  <textarea  placeholder="请填写您的作品" placeholder-style="color:#999999;" bindblur="works_txt" />
+	  <input type="text"  placeholder="请留下您的姓名" bindblur="putmobile"  placeholder-style="color:#999999;" style="margin-bottom:20rpx" />
+     <input type="tel"  placeholder="请留下您的电话号码" bindblur="putmobile2"  placeholder-style="color:#999999;" />
+	  <view class="commit">
+		   <image catchtap="checked" src="{{checked?'../../../static/ck-a.png':'../../../static/ck.png'}}" class="check"></image>
+	  	   <text catchtap="checked" style="display: inline-block;vertical-align: middle;">提交申请表示同意</text>
+	  	   <text style="color: rgba(26,121,146,1);display: inline-block;vertical-align: middle;" catchtap="navto">服务协议</text>
+	  </view>
+	  <view class="submit-btn" catchtap="submit">
+	  	   <form action="" report-submit="{{true}}" class="form-formid" bindsubmit="saveFormId">
+	  		   <button form-type="submit" class="button-formid" style="width: 100%;"></button>
+	  	   </form>
+	  	   提交
+	  </view>
+	  <view class="message" wx:if="{{msgshow}}">
+	  	   <view class="content">
+	  		   <view style="margin: 62rpx 0;">提交成功</view>
+	  		   <view>您的申请已提交</view>
+	  		   <view>请耐心等候审核结果</view>
+	  		   <view class="line-h"></view>
+	  		   <view class="do" catchtap="doknow">
+	  			   我知道了
+	  		   </view>
+	  	   </view>
+	  </view> 
+   </block>
+   <view class="status-page" wx:if="{{status==1}}">
+	   <view>您的申请正在审核中</view>
+	   <view>请耐心等待…</view>
+   </view>
+   <view  wx:if="{{status==3}}">
+	   <image src="../../../static/warn.png" class="warn"></image>
+	   <view class="not-pass">未通过审核</view>
+	   <view class="not-desc">请重新确认您的资料（如手机号）是否填写正确</view>
+	   <view class="resubmit" catchtap="resubmit">重新填写</view>
+   </view>
+</view>

@@ -1,0 +1,61 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/my/index",
+    "pages/reporter/index",
+    "pages/bookshelf/index",
+    "pages/index/against/against",
+    "pages/index/speak/speak",
+    "pages/bookshelf/detail/detail",
+    "pages/reporter/info/info",
+    "pages/reporter/apply/apply",
+    "pages/reporter/photo/photo",
+    "pages/my/getmoney/getmoney",
+    "pages/reporter/readme/readme",
+    "pages/reporter/outbook/outbook",
+    "pages/reporter/edit/edit",
+    "pages/reporter/agreement/index",
+    "pages/reporter/interview/index",
+    "pages/reporter/interview/info/info"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "家传",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "navbar": "/common/navbar",
+    "header": "/common/header",
+    "tip": "/common/tip/tip",
+    "login": "/common/login/login"
+  },
+  "tabBar": {
+    "selectedColor": "#1A7992",
+    "color": "#696969",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "家传",
+      "iconPath": "static/jcn.png",
+      "selectedIconPath": "static/jcact.png"
+    },{
+      "pagePath": "pages/reporter/index",
+      "text": "记者",
+      "iconPath": "static/jzn.png",
+      "selectedIconPath": "static/jzact.png"
+    },{
+      "pagePath": "pages/bookshelf/index",
+      "text": "书架",
+      "iconPath": "static/bbo.png",
+      "selectedIconPath": "static/bbact.png"
+    },{
+      "pagePath": "pages/my/index",
+      "text": "我的",
+      "iconPath": "static/myn.png",
+      "selectedIconPath": "static/myact.png"
+    }]
+  }
+}

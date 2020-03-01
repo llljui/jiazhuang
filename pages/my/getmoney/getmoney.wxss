@@ -1,0 +1,86 @@
+.content{
+	width: 750rpx;
+	/* height: 318rpx; */
+	background-color: white;
+	top: 28rpx;
+	position: relative;
+	padding:36rpx 57rpx;
+}
+.money{
+	width: 80rpx;
+	height: 52rpx;
+	font-size: 72rpx;
+	font-family: PingFang SC Medium;
+	color: rgba(48,48,48,1);
+	line-height: 52rpx;
+	text-align: left;
+}
+.input-in{
+	width: 420rpx;
+	height: 48rpx;
+	font-size: 32rpx;
+	font-family: PingFang SC Medium;
+	color: black;
+	line-height: 48rpx;
+	
+}
+.t1{
+	height: 48rpx;
+	opacity: 1;
+	font-size: 32rpx;
+	font-family: PingFang SC Medium;
+	color: rgba(48,48,48,1);
+	line-height: 48rpx;
+	margin-bottom: 30rpx;
+}
+.t2{
+	height: 68rpx;
+	font-size: 32rpx;
+	font-family: PingFang SC Medium;
+	color: rgba(153,153,153,1);
+	line-height: 48rpx;
+}
+.getout{
+	width: 340rpx;
+	height: 88rpx;
+	opacity: 1;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 500rpx;
+	margin: auto;
+	text-align: center;
+	font-size: 42rpx;
+	font-family: PingFang SC Bold;
+	color: rgba(153,153,153,1);
+	text-align: center;
+	line-height: 88rpx;
+	z-index: 99;
+	background-color: rgb(206,206,206);
+	border-radius: 50rpx;
+}
+.got-icon{
+	width: 138rpx;
+	height: 138rpx;
+	opacity: 1;
+	margin: 80rpx auto 30rpx auto;
+	display: block;
+}
+.got-t{
+	height: 46rpx;
+	opacity: 1;
+	font-size: 48rpx;
+	font-family: PingFang SC Medium;
+	color: rgba(26,121,146,1);
+	line-height: 46rpx;
+	text-align: center;
+}
+.got-tt{
+	height: 108rpx;
+	opacity: 1;
+	font-size: 30rpx;
+	font-family: PingFang SC Medium;
+	color: rgba(153,153,153,1);
+	line-height: 108rpx;
+	text-align: center;
+}

@@ -1,0 +1,10 @@
+@import "/utils/wxParse/wxParse.wxss";
+.pages{
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  padding-top: 160rpx;
+}
+.book{
+	width: 100%;
+}

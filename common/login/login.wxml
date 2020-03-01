@@ -1,0 +1,16 @@
+<view class="login" wx:if="{{!islogin}}">
+	<view class="content">
+		<view class="ft14">微信授权</view>
+		<view class="ft12">家传申请获取以下权限：</view>
+		<view class="line"></view>
+		<view class="author">
+			<view class="dott"></view>
+			<view class="kuan"> 获得你的公开信息（昵称、头像、地区及性别）</view>
+		</view>
+		<view class="action">
+			<navigator hover-class="none" open-type="exit" target="miniProgram"><button  hover-class='btn-hover'>拒绝</button></navigator>
+			<button hover-class='btn-hover'  style="color:#085B7D;" bindgetuserinfo="getUserInfo" open-type="getUserInfo" >允许</button>
+		</view>
+		
+	</view>
+</view>

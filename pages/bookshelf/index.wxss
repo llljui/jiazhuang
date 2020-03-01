@@ -1,0 +1,47 @@
+.book-list{
+	position: relative;
+	width: 100%;
+	height: 300rpx;
+	margin: 38rpx 0;
+	justify-content: space-around;
+}
+.book-list>image{
+	position: absolute;
+	left: 0;
+	top: 0;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+}
+.book-list>navigator{
+	width: 195rpx;
+	height: 265rpx;
+	margin: 0 26rpx;
+	box-shadow: 10rpx 8rpx 14rpx #dfdfdf;
+	background-color: white;
+	border-radius: 8rpx;
+	margin-top: 24rpx;
+}
+.out-book{
+  position: fixed;
+  right: 24rpx;
+  bottom: 168rpx;
+  width: 130rpx;
+  height: 130rpx;
+  opacity: 1;
+  border-radius: 500rpx;
+  color: white;
+  background-color: rgba(26,121,146,1);
+  padding:30rpx 10rpx;
+  text-align: center;
+  font-size: 28rpx;
+  font-family: PingFang SC Medium;
+  font-weight: bold;
+}
+.books{
+	width: 196rpx;
+	height: 266rpx;
+	opacity: 1;
+	display: inline-block;
+	vertical-align: middle;
+}

@@ -1,0 +1,15 @@
+<header title="书架"></header>
+<!-- <navbar navtab="/pages/bookshelf/index"></navbar> -->
+<login login="{{login}}" bind:logincomplete="logincomplete"></login>
+<view class="page-h {{model}}" style="padding-top:1rpx;background-color: white;min-height: calc({{model=='iphonex'?'100vh - 220rpx':'100vh - 160rpx'}});">
+	<view class="book-list flex-row" wx:for="{{listLength}}" wx:key="{{index}}" hover-class="none">
+		<image src="../../static/bookbg.png"></image>
+		<navigator hover-class="none"  url="{{'/pages/bookshelf/detail/detail?img='+list[3*index].image+'&book='+list[3*index].book}}" class="flex-grow-0 bg-img" style="background-image: url({{list[3*index].image}});visibility:{{list[3*index].image?'visible':'hidden'}};"></navigator>
+		<navigator hover-class="none"  url="{{'/pages/bookshelf/detail/detail?img='+list[3*index].image+'&book='+list[3*index+1].book}}" class="flex-grow-0 bg-img" style="background-image: url({{list[3*index+1].image}});visibility:{{list[3*index+1].image?'visible':'hidden'}}"></navigator>
+		<navigator hover-class="none"  url="{{'/pages/bookshelf/detail/detail?img='+list[3*index].image+'&book='+list[3*index+2].book}}" class="flex-grow-0 bg-img" style="background-image: url({{list[3*index+2].image}});visibility:{{list[3*index+2].image?'visible':'hidden'}}"></navigator>
+	</view>
+	<view class="out-book"  catchtap="applyoutbook">
+		  <text>找记者出书</text>
+		  <view  class="img-nav"></view>
+	</view>
+</view>

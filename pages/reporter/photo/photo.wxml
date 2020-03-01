@@ -1,0 +1,16 @@
+<header title="   "></header>
+<view class="page-h {{model}}" style="background-color: white;padding: 12rpx; min-height: calc(100vh - {{model=='iphonex'?'220':'160'}}rpx);">
+	<view class="item-bg" catchtap="select" data-index="{{index}}" data-item="{{item}}" class="add-photo bg-img" style="background-image: url({{item.src}});" wx:for="{{imglist}}" wx:key="{{index}}">
+		<view class="item-hid" wx:if="{{item.show}}">{{item.seletnum}}</view>
+	</view>
+	<image src="../../../static/add-photo.png" class="add-photo" catchtap="selectimg"></image>
+	<form action="" report-submit="{{true}}" bindsubmit="saveFormId">
+		<button form-type="submit" catchtap="deleteshow" class="del-button">删除照片</button>
+	</form>
+</view>
+<view class="show-bg" wx:if="{{actionShow}}"></view>
+<view class="actions" wx:if="{{actionShow}}">
+	<view>确定删除{{seletnum}}张美照？</view>
+	<view catchtap="delimg">删除</view>
+	<view catchtap="canceldel">取消</view>
+</view>

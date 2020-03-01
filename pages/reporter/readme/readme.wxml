@@ -1,0 +1,46 @@
+<header title="   "></header>
+<view class="page-h {{model}}" style="overflow-x: hidden;background-color: white;padding: 12rpx; min-height: calc(100vh - {{model=='iphonex'?'220':'160'}}rpx);">
+	<view class="ft15">《家传》出版说明</view>
+	<view class="table bg-img">
+		<image src="../../../static/table.png"></image>
+		<view class="thead flex-row">
+			<view class="flex-grow-0">
+			  <view>规格</view>
+			  <view>（页数）</view>
+			</view>
+			<view class="flex-grow-0 l-100">字数</view>
+			<view class="flex-grow-0 l-100">开本</view>
+			<view class="flex-grow-0 l-100">印数</view>
+			<view class="flex-grow-0 l-100">是否书号</view>
+			<view class="flex-grow-0">
+				<view>价格</view>
+				<view>（万元）</view>
+			</view>
+		</view>
+		<view class="flex-row tbody" wx:for="{{tbodylist}}" wx:key="{{index}}">
+			<view class="flex-grow-0" wx:for="{{item}}" wx:for-item="item1" wx:for-index="index1" wx:key="{{index1}}">{{item1}}</view>
+		</view>
+	</view>
+	<view class="table-end bg-img">
+		<image src="../../../static/table-all.png"></image>
+		<view class="flex-row tbody">
+			<view class="flex-grow-0">视频记录</view>
+			<view class="flex-grow-1" style="text-align: left;text-indent: 30rpx;">200元/小时</view>
+		</view>
+	</view>
+	<view class="line-h"></view>
+	<view class="ft15" style="color: #000000;margin-left: 30rpx;margin-bottom: 12rpx;">选择规格</view>
+	<view class=" content flex-row">
+		<view wx:for="{{booknum}}"  data-item="{{item}}" data-index="{{index}}" catchtap="select" class="block-num flex-grow-0" style="color: {{item.s?'white':'#666666'}};background-color: {{item.s?'#1A7992':'#E5E5E5'}};" wx:key="{{index}}">{{item.spec}}</view>
+	</view>
+	<view class="line-h"></view>
+	<view class="actions-in">
+		<text style="vertical-align: middle;">视频记录（小时）</text>
+		<text class="ac" style="border-radius:30rpx 0 0 30rpx;" catchtap="cut">-</text>
+		<input type="number" bindinput="valin" class="book-value" value="{{bookvalue}}"/>
+		<text class="ac" style="border-radius:0rpx 30rpx 30rpx 0rpx;" catchtap="add">+</text>
+	</view>
+	<form action="" report-submit="{{true}}" bindsubmit="saveFormId">
+		<button form-type="submit" class="soon-book" catchtap="soonBook">立即出书</button>
+	</form>
+</view>
