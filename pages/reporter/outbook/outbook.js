@@ -10,7 +10,8 @@ Page({
     form:{
       phone:'',
       name:'',
-      address:''
+      address:'',
+      lang_area:''
     },
     guige:{}
   },
@@ -147,6 +148,7 @@ Page({
     (e.currentTarget.dataset.type == 'name') && (form.name = e.detail.value);
     (e.currentTarget.dataset.type == 'phone') && (form.phone = e.detail.value);
     (e.currentTarget.dataset.type == 'address') && (form.address = e.detail.value);
+    (e.currentTarget.dataset.type == 'lang_area') && (form.lang_area = e.detail.value);
     self.setData({ form : form});
   },
   navto(){

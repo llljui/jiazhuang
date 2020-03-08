@@ -1,6 +1,6 @@
 .content{
 	width: 750rpx;
-	height: 378rpx;
+	height: 560rpx;
 	opacity: 1;
 	background-color: white;
 	padding: 0 30rpx;
@@ -34,7 +34,7 @@ textarea{
 	width: 500rpx;
 	height: 100rpx;
 	font-size: 30rpx;
-	padding-top: 0rpx;
+	padding-top: 30rpx;
 	line-height: 36rpx;
 }
 .next-btn{

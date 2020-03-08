@@ -9,6 +9,10 @@
 			<text class="item-name">手机号码</text>
 			<input type="number" value="{{form.phone}}" bindinput="formin" data-type="phone"  maxlength="11" placeholder="请输入手机号" />
 		</view>
+    	<view class="l-input">
+			<text class="item-name">方言</text>
+			<input type="text" value="{{form.lang_area}}" bindinput="formin" data-type="lang_area"  maxlength="11" placeholder="请输入您的方言" />
+		</view>
 		<view class="l-input">
 			<text class="item-name">详细地址</text>
 			<textarea type="text" value="{{form.address}}" bindinput="formin" data-type="address"  placeholder="请填写您的住址 省/市/区和详细的乡镇、街道、小区、单元、门牌等"  />
