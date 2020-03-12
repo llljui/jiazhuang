@@ -11,10 +11,10 @@
   <view class="block" wx:for="{{list}}" wx:key="{{index}}">
     <image src="/static/home-block.png" class="bg-image"></image>
     <view class="flex-row flex-y-center">
-      <view class="flex-grow-0" style="margin-right:16rpx;">
+      <view class="flex-grow-0" style="margin-right:16rpx;" catchtap="navto" data-url="{{'/pages/reporter/info/info?id='+item.user.id}}" >
         <image src="{{item.user.avatar}}" class="avter bgc-r"></image>
       </view>
-      <view class="flex-grow-1">
+      <view class="flex-grow-1" catchtap="navto" data-url="{{'/pages/reporter/info/info?id='+item.user.id}}" >
         <view class="item-name">{{item.user.nickname}}</view>
         <view class="item-location">{{item.user.city}}</view>
       </view>

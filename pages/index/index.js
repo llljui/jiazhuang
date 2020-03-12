@@ -118,7 +118,16 @@ Page({
 	    }
 	});
   },
-
+  navto(e){
+    console.log(e)
+    if (!wx.getStorageSync('access_token')) {
+      this.selectItem({ currentTarget: { dataset: { index: 0, item: {} } } })
+      return;
+    }
+    wx.navigateTo({
+      url: e.currentTarget.dataset.url,
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
