@@ -15,7 +15,7 @@
      您还可录制{{time_m}}分{{time_s}}秒</text> 
 	</view>
   <view class="tips txt-center" >{{(status==1)?'按下录音 再按暂停':'正在录音...'}} <text></text></view>
-  <view class="txt-center" >
+  <view class="txt-center">
      <image catchtap="{{status==2?'recordStop':'record'}}"
       src="/static/speak.png" class="speak-icon"></image>
   </view>
@@ -36,4 +36,5 @@
 			</cover-view>
 		</cover-view>
 	</cover-view>
+  <audio  src="{{curaudio}}" style="position:absolute;bottom:-100rpx;opacity:0" id="myAudio" controls></audio>
 </view>

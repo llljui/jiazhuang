@@ -181,6 +181,7 @@
 						<text>{{reporter.gender==1?'男':'女'}}{{((reporter.gender!=1)&&(reporter.gender!=2))?'未知':''}}</text>
 						<text>{{reporter.city}}</text>
 					</view>
+          <image src="{{(reporter.symbol==2)?'../../static/rep-icon.png':'../../static/reporter-icon.png'}}" style="position:absolute;right:50rpx;width:{{(reporter.symbol==2)?'100rpx':'188rpx'}};height:48rpx;top:174rpx"></image>
 				</view>
 			</view>
 			<view class="reporte-desc">

@@ -67,11 +67,15 @@ Page({
 	    })
 	  }
 	});
+ 
 	downloadTask.onProgressUpdate((res)=>{
 		wx.showLoading({
 			title:'正在打开'+res.progress+'%'
 		})
 	})
+  },
+  navback() {
+    wx.navigateBack({})
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

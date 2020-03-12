@@ -9,7 +9,7 @@
   height:55rpx;
   background:rgba(184,190,204,1);
   border-radius:10rpx;
-  margin:126rpx auto 0 auto;
+  margin:82rpx auto 0 auto;
   position: relative;
   font-size:22rpx;
   font-family:PingFang SC;
@@ -56,7 +56,7 @@ textarea{
 	position: relative;
 	left: 0;
 	right: 0;
-	top: 93rpx;
+	top: 50rpx;
 	margin: auto;
 	background-color: white;
 	text-align: center;

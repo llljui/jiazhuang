@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    curaudio:'',//试听
 	src:'',
 	width:375,//宽度
 	height: 173,//高度
@@ -85,7 +86,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.audioCtx = wx.createAudioContext('myAudio');
   },
 
   /**
@@ -99,7 +100,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    clearInterval(this.data.timeGo);
   },
 
   /**
@@ -237,6 +238,10 @@ Page({
 				  timeover:timeover,
 				  recordtime:recordtime
 			  });
+        if (timeover<=0){
+          self.recordStop();
+          clearInterval(self.data.timeGo)
+        }
 			  console.log(timeover)
 		  },1000)
 		  
@@ -313,9 +318,11 @@ Page({
   },
   listenSpeak(){
 	  let self = this;
-	  let islisten = self.data.islisten;
+	  let islisten = self.data.record_list;
+    // console.log(self.data.status)
+    if (self.data.status==2){return}
 	  console.log(islisten);
-	  self.data.lastrecord.length==0&&wx.showModal({
+    self.data.record_list.length==0&&wx.showModal({
 		  title:'提示',
 		  content:'请先录音',
       showCancel:!1,
@@ -326,35 +333,46 @@ Page({
 			  // })
 		  }
 	  });
-	  if(self.data.lastrecord.length==0) return;
+    if (self.data.record_list.length==0) return;
 	  let InnerAudioContext = wx.createInnerAudioContext();
 	  let delay=0;
-	  InnerAudioContext.onEnded(()=>{
-	    self.setData({
-		  islisten:false
-	    });
-		console.log('结束');
-	  });
-	  InnerAudioContext.onPlay(()=>{
-	    self.setData({
-	  		  islisten:true
-	    });
-	  		console.log('结束');
-	  });
-	  self.data.lastrecord.map((item,index)=>{
+    self.setData({
+      islisten: true
+    });
+	  // InnerAudioContext.onEnded(()=>{
+	   
+		// console.log('结束');
+	  // });
+	  // InnerAudioContext.onPlay(()=>{
+	  //   self.setData({
+	  // 		  islisten:true
+	  //   });
+	  // 		console.log('开始');
+	  // });
+    self.data.record_list.map((item,index)=>{
 		  if(index==0){
-			InnerAudioContext.src=item.file;
-			InnerAudioContext.play();
-			console.log(item)
+			self.setData({
+        curaudio: item.file
+      })
+        console.log(delay, '播放着', item,index)
+      self.audioCtx.play()
+			// console.log()
 		  }else{
 			  setTimeout(()=>{
-				  InnerAudioContext.src=item.file;
-				  InnerAudioContext.play();
-				  console.log(delay,'搞什么')
+          self.setData({
+            curaudio: item.file
+          })
+          self.audioCtx.play()
+          console.log(delay, '播放着', item, index)
 			  },delay)
 		  }
 		  delay = Number(item.time) + delay;
 	  });
+    setTimeout(()=>{
+      self.setData({
+        islisten: false
+      });
+    },delay)
   },
   tells(){
 	  let self = this;

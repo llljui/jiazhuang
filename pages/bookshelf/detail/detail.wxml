@@ -3,4 +3,5 @@
 <view class="pages {{model}}">
 	<!-- <template is="wxParse" data="{{wxParseData:article.nodes}}"/> -->
 	<image src="{{img}}" class="book" mode="aspectFit" catchtap="loadbooks"></image>
+  <button style="margin-top:100rpx" bindtap="navback">返回列表</button>
 </view>
