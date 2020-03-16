@@ -1,12 +1,13 @@
 const app = getApp(),api = require("../../../utils/api.js");
-
+// const addpic = require('');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    curaudio:'',//试听
+ 
+  curaudio:'',//试听
 	src:'',
 	width:375,//宽度
 	height: 173,//高度
@@ -38,7 +39,7 @@ Page({
         const ctx = wx.createCanvasContext('itembgs');
         rpx = res.windowWidth/375;
         self.setData({rpx:rpx,dWidth:res.windowWidth});
-        self.getImgurl('https://www.jiazhuan.com.cn/storage/Y0V0V1CJ0LufO1tUt5OfiQNlCN2Y1tOeaXD4Kl7O.png',(res_)=>{
+        self.getImgurl('https://culture-1300191527.cos.ap-shanghai.myqcloud.com/miniProgram/34311d4f3d1c2faa1f09d715ce9a1d31.png',(res_)=>{
         console.log(res_);
         ctx.drawImage(res_.path, 0, 0, 375*rpx, 194*rpx);
         ctx.draw();
@@ -212,6 +213,10 @@ Page({
 	  let recorderManager = wx.getRecorderManager();
 	  let timeover = self.data.timeover;
 	  let recordtime = 0;
+    self.audioCtx.pause();
+    self.setData({
+      islisten: false
+    });
 	  timeover<=0&&wx.showModal({
 		  title:'提示',
 		  content:'最多录制5分钟哦~'
@@ -318,61 +323,55 @@ Page({
   },
   listenSpeak(){
 	  let self = this;
-	  let islisten = self.data.record_list;
-    // console.log(self.data.status)
-    if (self.data.status==2){return}
-	  console.log(islisten);
-    self.data.record_list.length==0&&wx.showModal({
-		  title:'提示',
-		  content:'请先录音',
-      showCancel:!1,
-		  success(res){
-			  console.log(res);
-			  // res.confirm&&self.setData({
-				//   speakShow:true
-			  // })
-		  }
-	  });
-    if (self.data.record_list.length==0) return;
-	  let InnerAudioContext = wx.createInnerAudioContext();
-	  let delay=0;
-    self.setData({
-      islisten: true
-    });
-	  // InnerAudioContext.onEnded(()=>{
-	   
-		// console.log('结束');
-	  // });
-	  // InnerAudioContext.onPlay(()=>{
-	  //   self.setData({
-	  // 		  islisten:true
-	  //   });
-	  // 		console.log('开始');
-	  // });
-    self.data.record_list.map((item,index)=>{
-		  if(index==0){
-			self.setData({
-        curaudio: item.file
-      })
-        console.log(delay, '播放着', item,index)
-      self.audioCtx.play()
-			// console.log()
-		  }else{
-			  setTimeout(()=>{
+    (self.data.status==2)&&self.recordStop();
+    setTimeout(()=>{
+      let islisten = self.data.record_list;
+      // console.log(self.data.status)
+      if (self.data.status == 2) { return }
+      console.log(islisten);
+      self.data.record_list.length == 0 && wx.showModal({
+        title: '提示',
+        content: '请先录音',
+        showCancel: !1,
+        success(res) {
+          console.log(res);
+          // res.confirm&&self.setData({
+          //   speakShow:true
+          // })
+        }
+      });
+      if (self.data.record_list.length == 0) return;
+      let InnerAudioContext = wx.createInnerAudioContext();
+      let delay = 0;
+      self.setData({
+        islisten: true
+      });
+      self.data.record_list.map((item, index) => {
+        if (index == 0) {
           self.setData({
             curaudio: item.file
           })
-          self.audioCtx.play()
           console.log(delay, '播放着', item, index)
-			  },delay)
-		  }
-		  delay = Number(item.time) + delay;
-	  });
-    setTimeout(()=>{
-      self.setData({
-        islisten: false
+          self.audioCtx.play()
+          // console.log()
+        } else {
+          setTimeout(() => {
+            self.setData({
+              curaudio: item.file
+            })
+            self.audioCtx.play()
+            console.log(delay, '播放着', item, index)
+          }, delay)
+        }
+        delay = Number(item.time) + delay;
       });
-    },delay)
+      setTimeout(() => {
+        self.setData({
+          islisten: false
+        });
+      }, delay)
+    },200)
+   
   },
   tells(){
 	  let self = this;

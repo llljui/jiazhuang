@@ -36,7 +36,7 @@ App({
   },
   onShow(){
     console.log('show', ((new Date()).getTime() - wx.getStorageSync('opentime')))//
-    if (((new Date()).getTime() - wx.getStorageSync('opentime')) >= 1000000){
+    if (((new Date()).getTime() - wx.getStorageSync('opentime')) >= 86400000){//时间一天过期
       wx.clearStorage({
         success(){
           wx.setStorageSync('opentime', (new Date()).getTime())
