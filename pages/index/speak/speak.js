@@ -145,6 +145,9 @@ Page({
 				 console.log(res_);
           let w = ((res_.width) * (194 * rpx) / (res_.height))
 				//  ctx.drawImage(tempFilePaths,  (res_.width>750*rpx)?((res_.width - 750*rpx)/2):0  ,  ((res_.height>388*rpx))?((res_.height - 388*rpx)/2):0  ,  res_.width<750*rpx?res_.width:750*rpx  ,  ((res_.height>388*rpx))?(388*rpx):res_.height  ,   0, 0,375*rpx,194*rpx);
+          wx.showLoading({
+            title: '图片连接生成中请稍后',
+          })
          ctx.drawImage(tempFilePaths, (w < 375 * rpx) ? ((375 * rpx - w) / 2) : 0 , 0, w, 194 * rpx);
         //  ctx_o.drawImage(tempFilePaths, 0, 0, res_.width, res_.height);
          ctx.draw(false,function(){
@@ -158,6 +161,7 @@ Page({
                     encoding: "base64",//这个是很重要的
                     success: resss => { //成功的回调
                       //返回base64格式
+                     
                       // console.log('data:image/png;base64,' + resss.data);
                       wx.uploadFile({
                         url: api.upload,
@@ -168,6 +172,7 @@ Page({
                         },
                         success(reb) {
                           console.log(JSON.parse(reb.data));
+                          wx.hideLoading();
                           self.setData({
                             itembg: JSON.parse(reb.data).data[0]
                           })
@@ -254,8 +259,9 @@ Page({
   },
   recordStop(e){
 	  let self = this;
+    console.log(self.data.recorderManager)
 	  let recorderManager =  self.data.recorderManager;
-	  recorderManager.stop();
+    recorderManager.stop();//||recorderManager.pause();
   },
   cancelrecord(){
 	  let self = this;
@@ -377,43 +383,44 @@ Page({
 	  let self = this;
 	  wx.showLoading();
 	  console.log(self.data.lastrecord);
-    this.complete(()=>{
-      app.request({
-        url: api.tells,
-        method: "POST",
-        data: {
-          title: self.data.title,
-          image: self.data.itembg,
-          audio: JSON.stringify(self.data.lastrecord)
-        },
-        success: function (e) {
-          console.log(e);
-          if (-1 == e.code || e.code == 401) { self.setData({ login: (new Date()).getTime() }); return };
-          if (1 == e.code) {
-            wx.hideLoading();
-            wx.showModal({
-              title: '提示',
-              content: '已提交,后台会对语音进行处理,等待3分钟之后,刷新首页!',
-              showCancel: !1,
-              success(res) {
-                wx.navigateBack();
-              }
-            })
-          } else wx.showModal({
-            title: "提示",
-            content: e.msg,
-            showCancel: !1
-          });
-        },
-        complete: function () {
-          setTimeout(() => {
-            wx.hideLoading();
-          }, 2000)
-          // wx.hideLoading();
-        }
+    setTimeout(()=>{
+      this.complete(() => {
+        app.request({
+          url: api.tells,
+          method: "POST",
+          data: {
+            title: self.data.title,
+            image: self.data.itembg,
+            audio: JSON.stringify(self.data.lastrecord)
+          },
+          success: function (e) {
+            console.log(e);
+            if (-1 == e.code || e.code == 401) { self.setData({ login: (new Date()).getTime() }); return };
+            if (1 == e.code) {
+              wx.hideLoading();
+              wx.showModal({
+                title: '提示',
+                content: '已提交,后台会对语音进行处理,等待3分钟之后,刷新首页!',
+                showCancel: !1,
+                success(res) {
+                  wx.navigateBack();
+                }
+              })
+            } else wx.showModal({
+              title: "提示",
+              content: e.msg,
+              showCancel: !1
+            });
+          },
+          complete: function () {
+            setTimeout(() => {
+              wx.hideLoading();
+            }, 2000)
+            // wx.hideLoading();
+          }
+        });
       });
-    });
-	  
+    },2000)
   },
   bindTextAreaBlur(e){
 	  // console.log(e);
