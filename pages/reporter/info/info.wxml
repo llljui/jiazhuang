@@ -10,7 +10,8 @@
 			<view class="flex-grow-0 avatar bg-img" style="background-image: url({{infodel.avatar}});"></view>
 			<view class="flex-grow-0" style="margin-left: 28rpx;">
 				<view class="nickname" style="color:white">{{infodel.nickname}} 
-        <image src="../../../static/gjjz.jpg"  wx:if="{{infodel.symbol==4}}" class="rep-icon" ></image>
+
+        <image src="../../../static/gjjz.png"  wx:if="{{infodel.symbol==4}}" class="rep-icon" ></image>
         <image src="../../../static/reporter-icon.png"  wx:if="{{infodel.symbol==3}}" class="rep-icon" ></image>
         <image  src="../../../static/jzpt.png" style="width:80rpx" wx:if="{{infodel.symbol==2}}" 
          class="rep-icon" ></image>

@@ -181,8 +181,11 @@
 						<text>{{reporter.gender==1?'男':'女'}}{{((reporter.gender!=1)&&(reporter.gender!=2))?'未知':''}}</text>
 						<text>{{reporter.city}}</text>
 					</view>
-          <image src="../../static/gjjz.jpg" wx:if="{{reporter.symbol==4?true:false}}" style="position:absolute;right:50rpx;width:188rpx;height:48rpx;top:174rpx"></image>
-          <image wx:else src="{{(reporter.symbol==2)?'../../static/rep-icon.png':'../../static/reporter-icon.png'}}" style="position:absolute;right:50rpx;width:{{(reporter.symbol==2)?'100rpx':'188rpx'}};height:48rpx;top:174rpx"></image>
+
+          <image wx:if="{{reporter.symbol==2}}" src="../../static/rep-icon.png" style="position:absolute;right:50rpx;width:100rpx}};height:48rpx;top:174rpx"></image>
+           <image  wx:if="{{reporter.symbol==3}}" src="../../static/reporter-icon.png" style="position:absolute;right:50rpx;width:188rpx}};height:48rpx;top:174rpx"></image>
+           <image  wx:if="{{reporter.symbol==4}}" src="../../static/gjjz.png" style="position:absolute;right:50rpx;width:188rpx}};height:48rpx;top:174rpx"></image>
+
 				</view>
 			</view>
 			<view class="reporte-desc">
