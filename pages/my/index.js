@@ -64,6 +64,7 @@ Page({
                infodesc: e.data.intro,
                signature: e.data.signature
             });
+           
             // "nickname": "涸泽渔人",  // 昵称
             // "age": 20,              // 年龄
             // "gender": 1,            // 性别,0:未知,1:男,2:女
@@ -163,6 +164,7 @@ Page({
             infodesc: e.data.intro,
             signature: e.data.signature
           });
+          
           // "nickname": "涸泽渔人",  // 昵称
           //   "age": 20,              // 年龄
           //     "gender": 1,            // 性别,0:未知,1:男,2:女

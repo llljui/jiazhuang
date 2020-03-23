@@ -14,6 +14,7 @@ Page({
    */
   onLoad: function (options) {
 	let self =this;
+  console.log(options)
 	wx.getSystemInfo({
 	  	success(res){
 	  		console.log(res.model);
@@ -52,7 +53,7 @@ Page({
 	wx.showLoading({title:'正在打开0%'});
 	const downloadTask = wx.downloadFile({
 	  // 示例 url，并非真实存在
-	  url:self.data.book,
+	  url:self.data.book+'?time='+(new Date()).getTime(),
 	  success: function (res) {
 	    const filePath = res.tempFilePath
 	    wx.openDocument({
@@ -75,7 +76,17 @@ Page({
 	})
   },
   navback() {
-    wx.navigateBack({})
+    wx.navigateBack({
+      success(res){
+        console.log(res)
+      },
+      fail(err){
+        console.log(err)
+        wx.switchTab({
+          url: '/pages/bookshelf/index',
+        })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -123,6 +134,20 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '自定义转发标题',
+      path: '/pages/bookshelf/detail/detail?book='+this.data.book+'&img='+this.data.img,
+      success: function (res) {
+        // 转发成功
+        wx.showToast({
+          title: '转发成功!',
+          icon:'none'
+        });
+        console.log(res)
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

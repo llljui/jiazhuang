@@ -36,7 +36,13 @@ Component({
    */
   methods: {
     navback(){
-      wx.navigateBack({})
+      wx.navigateBack({
+        fail(err){
+          wx.switchTab({
+            url: '/pages/bookshelf/index',
+          })
+        }
+      })
     }
   }
 })
