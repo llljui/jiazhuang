@@ -5,7 +5,7 @@
    <!--  -->
 	  <textarea  placeholder="请填写您的作品" placeholder-style="color:#999999;" bindblur="works_txt" />
 	  <input type="text"  placeholder="请留下您的姓名" bindblur="putmobile"  placeholder-style="color:#999999;" style="margin-bottom:20rpx" />
-     <input type="tel"  placeholder="请留下您的电话号码" bindblur="putmobile2"  placeholder-style="color:#999999;" />
+     <input type="tel" maxlength="11" placeholder="请留下您的电话号码" bindblur="putmobile2"  placeholder-style="color:#999999;" />
 	  <view class="commit">
 		   <image catchtap="checked" src="{{checked?'../../../static/ck-a.png':'../../../static/ck.png'}}" class="check"></image>
 	  	   <text catchtap="checked" style="display: inline-block;vertical-align: middle;">提交申请表示同意</text>

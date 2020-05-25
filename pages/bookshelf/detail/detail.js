@@ -25,7 +25,8 @@ Page({
 	});
 	self.setData({
 		book:options.book,
-		img:options.img
+		img:options.img,
+    name:options.name
 	});
 	self.loadbook(options);
 	// var article = '<div>我是HTML代码</div>';
@@ -135,8 +136,8 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '自定义转发标题',
-      path: '/pages/bookshelf/detail/detail?book='+this.data.book+'&img='+this.data.img,
+      title: this.data.name,
+      path: '/pages/bookshelf/detail/detail?book=' + this.data.book + '&img=' + this.data.img + '&name='+this.data.name,
       success: function (res) {
         // 转发成功
         wx.showToast({
@@ -147,6 +148,9 @@ Page({
       },
       fail: function (res) {
         // 转发失败
+      },
+      complate(res){
+        console.log(res)
       }
     }
   }

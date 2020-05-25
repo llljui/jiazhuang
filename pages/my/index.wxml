@@ -182,9 +182,9 @@
 						<text>{{reporter.city}}</text>
 					</view>
 
-          <image wx:if="{{reporter.symbol==2}}" src="../../static/rep-icon.png" style="position:absolute;right:50rpx;width:100rpx}};height:48rpx;top:174rpx"></image>
-           <image  wx:if="{{reporter.symbol==3}}" src="../../static/reporter-icon.png" style="position:absolute;right:50rpx;width:188rpx}};height:48rpx;top:174rpx"></image>
-           <image  wx:if="{{reporter.symbol==4}}" src="../../static/gjjz.png" style="position:absolute;right:50rpx;width:188rpx}};height:48rpx;top:174rpx"></image>
+          <image wx:if="{{reporter.symbol==2}}" src="../../static/rep-icon.png" style="position:absolute;right:50rpx;width:100rpx;height:50rpx;top:174rpx"></image>
+           <image  wx:if="{{reporter.symbol==3}}" src="../../static/reporter-icon.png" style="position:absolute;right:50rpx;width:188rpx;height:50rpx;top:174rpx"></image>
+           <image  wx:if="{{reporter.symbol==4}}" src="../../static/gjjz.png" style="position:absolute;right:50rpx;width:188rpx;height:48rpx;top:174rpx"></image>
 
 				</view>
 			</view>
